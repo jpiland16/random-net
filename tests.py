@@ -179,12 +179,28 @@ def main():
     )
 
     print("""
-    Keep time, but require it to be small.
+    Keep time, but require it to be small. ( < 1)
     """)
     train_and_test(
         num_policies = 5,
         num_epochs = 2000,
-        game_length = 1, # notice
+        game_length = 2, # notice
+        batch_size = 50,
+        reward_mag = 10,
+        use_positive_reward = True,
+        use_time = True, # notice
+        learn_rate = 0.02,
+        use_sigmoid = False,
+        use_hidden = False
+    )
+
+    print("""
+    Keep time, but require it to be semi-small. ( < 10)
+    """)
+    train_and_test(
+        num_policies = 5,
+        num_epochs = 2000,
+        game_length = 11, # notice
         batch_size = 50,
         reward_mag = 10,
         use_positive_reward = True,

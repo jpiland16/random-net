@@ -22,7 +22,7 @@ def generate_single_vector_set(num_policies: int, time_range: int,
     selected_policy = random.randint(0, num_policies - 1)
     vector[selected_policy] = 1
     if use_time:
-        vector.append(random.randint(0, time_range - 1))
+        vector.append(random.uniform(0, time_range - 1))
 
     target = [0 if use_positive_reward else -reward_mag] * num_policies
     target[selected_policy] = reward_mag if use_positive_reward else 0
