@@ -194,6 +194,54 @@ def main():
         use_hidden = False
     )
 
+    print("""
+    Unsuccessfully try big time with small learning rate.
+    """)
+    train_and_test(
+        num_policies = 5,
+        num_epochs = 2000,
+        game_length = 100,
+        batch_size = 50,
+        reward_mag = 10,
+        use_positive_reward = True,
+        use_time = True, # notice
+        learn_rate = 0.005, # notice
+        use_sigmoid = False,
+        use_hidden = False
+    )
+
+    print("""
+    What about a tiny learning rate?
+    """)
+    train_and_test(
+        num_policies = 5,
+        num_epochs = 2000,
+        game_length = 100,
+        batch_size = 50,
+        reward_mag = 10,
+        use_positive_reward = True,
+        use_time = True, # notice
+        learn_rate = 0.0005, # notice
+        use_sigmoid = False,
+        use_hidden = False
+    )
+
+    print("""
+    Or a tiny learning rate and bigger batch?
+    """)
+    train_and_test(
+        num_policies = 5,
+        num_epochs = 2000,
+        game_length = 100,
+        batch_size = 500, # notice
+        reward_mag = 10,
+        use_positive_reward = True,
+        use_time = True, # notice
+        learn_rate = 0.0005, # notice
+        use_sigmoid = False,
+        use_hidden = False
+    )
+
 if __name__ == "__main__":
     try:
         main()
